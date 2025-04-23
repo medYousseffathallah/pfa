@@ -1,0 +1,157 @@
+/*:root {
+  --darkblue: #1a365d;
+  --blue: #2a4e7f;
+  --lightblue: #3b69a3;
+  --gold: #f1c40f;
+}
+
+.university-bg {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background-image: url('/university-bg-pattern.png');
+  background-size: cover;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-blue {
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-blue:hover {
+  background-color: var(--darkblue);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--darkblue);
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-gold:hover {
+  background-color: #e6b800;
+  transform: translateY(-2px);
+}
+
+.hover-gold:hover {
+  color: var(--gold) !important;
+}
+
+.text-darkblue {
+  color: var(--darkblue);
+}*/
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+  color: var(--darkblue);
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--darkblue);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+.modal button[type="submit"]:hover {
+  background: var(--darkblue);
+  
+}
+
+.modal-footer-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.text-link {
+  background: none;
+  border: none;
+  color: var(--blue);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.error {
+  color: #d32f2f;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
