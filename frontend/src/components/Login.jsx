@@ -34,7 +34,7 @@ const Login = ({ setIsAuthenticated }) => {
         <div className="university-bg d-flex justify-content-center align-items-center min-vh-100">
             <div className="glass-card p-5" style={{ width: '100%', maxWidth: '450px' }}>
                 <div className="text-center mb-4">
-                    <img src="/logo-isimm.png" alt="University Logo" style={{ height: '70px' }} />
+                    <img src="/logo_isimm.png" alt="University Logo" style={{ height: '70px' }} />
                     <h3 className="mt-3 text-darkblue">Connexion</h3>
                 </div>
                 

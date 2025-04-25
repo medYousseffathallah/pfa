@@ -33,14 +33,23 @@ function App() {
 }
 
 export default App;*/
+import { Routes, Route } from 'react-router-dom';
+import Header from './Header';
 import Home from './Home';
+import './styles.css';
 
-function App() {
+const App = () => {
   return (
-    <div style={{ marginTop: '-3.5rem' }}>
-      <Home />
+    <div className="app-container">
+      
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          
+        </Routes>
+      </main>
     </div>
-  )
-}
+  );
+};
 
 export default App;

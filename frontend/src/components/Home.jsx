@@ -1,47 +1,8 @@
-/*import { useNavigate } from "react-router-dom";
-import './styles.css'; // For custom hover effects
-
-const Home = ({ isAuthenticated, setIsAuthenticated }) => {
-    const navigate = useNavigate();
-
-    return (
-        <div className="university-bg d-flex flex-column justify-content-center align-items-center min-vh-100">
-            <div className="glass-card p-5 text-center">
-                <img src="/logo-isimm.png" alt="University Logo" className="mb-4" style={{ height: '80px' }} />
-                
-                <h2 className="mb-4 text-darkblue">Bienvenue au Portail des Clubs</h2>
-                
-                {isAuthenticated ? (
-                    <>
-                        <p className="lead mb-4">Vous êtes connecté au système de gestion</p>
-                        <button 
-                            onClick={() => setIsAuthenticated(false)}
-                            className="btn btn-gold btn-lg"
-                        >
-                            <i className="bi bi-box-arrow-right me-2"></i>Déconnexion
-                        </button>
-                    </>
-                ) : (
-                    <>
-                        <p className="lead mb-4">Connectez-vous pour gérer les activités des clubs</p>
-                        <button 
-                            onClick={() => navigate('/login')}
-                            className="btn btn-blue btn-lg"
-                        >
-                            <i className="bi bi-box-arrow-in-right me-2"></i>Connexion
-                        </button>
-                    </>
-                )}
-            </div>
-        </div>
-    )
-}
-
-export default Home;*/
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 import './styles.css';
 import Footer from './Footer'
+import Header from './Header';
 
 const Home = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -54,6 +15,10 @@ const Home = () => {
     regEmail: '',
     regPassword: ''
   });
+
+  useEffect(() => {
+    console.log("ShowLogin state:", showLogin);
+  }, [showLogin]);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -104,38 +69,35 @@ const Home = () => {
     } finally {
       setIsLoading(false);
     }
+    console.log("showLogin:", showLogin, "setShowLogin:", typeof setShowLogin);
+
   };
 
   return (
+    
     <div className="university-page">
-      {/* Main Content */}
-      <header className="university-header">
-        <img src="/logo-isimm.png" alt="University Logo" className="logo" />
-        <h1>Gestion des Clubs Universitaires</h1>
-      </header>
 
-      <main className="main-content">
-        {isAuthenticated ? (
-          <div className="dashboard">
-            <h2>Bienvenue au Portail des Clubs</h2>
-            <button 
-              onClick={() => setIsAuthenticated(false)}
-              className="btn btn-logout"
-            >
-              Déconnexion
-            </button>
-          </div>
-        ) : (
-          <button 
-            onClick={() => setShowLogin(true)}
-            className="btn btn-login" 
-          >
-            Connexion Administrateur
-          </button>
-        )}
-      </main>
+      
+   <Header
+      isAuthenticated={isAuthenticated}
+      setIsAuthenticated={setIsAuthenticated}
+      setShowLogin={setShowLogin}
+      setShowRegister={setShowRegister}
+    />
 
-      {/* Login Modal */}
+    <main className="main-content">
+      <div className="hero-section">
+        <h1>Bienvenue à l'ISSIMM</h1>
+        <p>Gestion des clubs universitaires</p>
+        
+        <div className="auth-triggers">
+          
+        </div>
+      </div>
+
+
+    </main>
+    
       {showLogin && (
         <div className="modal-overlay">
           <div className="modal">
@@ -188,7 +150,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* Registration Modal */}
+    
       {showRegister && (
         <div className="modal-overlay">
           <div className="modal">

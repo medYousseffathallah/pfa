@@ -14,12 +14,13 @@ export default function Footer() {
       boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
       zIndex: '1000',
       fontSize: '0.9rem',
-      '@media (max-width: 768px)': {
+      '@media (maxwidth: 768px)': {
         fontSize: '0.8rem',
         padding: '0.6rem 0'
       }
     }}>
       {/* Back-to-top button */}
+  
       <button 
         onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
         style={{
@@ -48,13 +49,13 @@ export default function Footer() {
           gap: '1rem',
           marginBottom: '0.5rem',
           flexWrap: 'wrap',
-          '@media (max-width: 576px)': {
+          '@media (maxwidth: 576px)': {
             flexDirection: 'column',
             gap: '0.5rem'
           }
         }}>
           <a 
-            href="https://www.isimm.rnu.tn/public/" 
+            href="http://www.isimm.rnu.tn/public/" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{
