@@ -25,8 +25,9 @@ export default function Footer() {
         onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
         style={{
           position: 'absolute',
-          right: '20px',
+          left : '20px',
           top: '-20px',
+          bottom:'20px',
           background: '#FFD700',
           border: 'none',
           borderRadius: '50%',

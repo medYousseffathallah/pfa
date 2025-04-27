@@ -10,7 +10,7 @@
           </div>
           
           <div className="auth-buttons">
-          <ChatPopup/>
+        
             {isAuthenticated ? (
               <button onClick={() => setIsAuthenticated(false)}
               className="auth-btn login-btn"

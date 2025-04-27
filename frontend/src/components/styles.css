@@ -320,3 +320,63 @@
     font-size: 13px;
   }
 }
+/* ISIMM Info Section Styles */
+.isimm-info {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.about-section, .news-section {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.highlight-card {
+  flex: 1;
+  min-width: 250px;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #2c3e50;
+}
+
+.news-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #2c3e50;
+}
+
+.official-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #2c3e50;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.official-link:hover {
+  background: #1a252f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .highlights {
+    flex-direction: column;
+  }
+}

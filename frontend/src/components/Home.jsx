@@ -1,7 +1,7 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles.css';
-import Footer from './Footer'
+import Footer from './Footer';
 import Header from './Header';
 
 const Home = () => {
@@ -17,8 +17,23 @@ const Home = () => {
   });
 
   useEffect(() => {
-    console.log("ShowLogin state:", showLogin);
-  }, [showLogin]);
+    const script1 = document.createElement('script');
+    script1.src = "https://cdn.botpress.cloud/webchat/v2.4/inject.js";
+    script1.async = true;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.src = "https://files.bpcontent.cloud/2025/04/24/23/20250424231359-SAWVGTQD.js"; 
+    script2.async = true;
+    document.body.appendChild(script2);
+
+    return () => {
+      
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+    };
+  }, []); 
+
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -69,35 +84,78 @@ const Home = () => {
     } finally {
       setIsLoading(false);
     }
-    console.log("showLogin:", showLogin, "setShowLogin:", typeof setShowLogin);
-
   };
 
   return (
-    
     <div className="university-page">
+      <Header
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+        setShowLogin={setShowLogin}
+        setShowRegister={setShowRegister}
+      />
 
-      
-   <Header
-      isAuthenticated={isAuthenticated}
-      setIsAuthenticated={setIsAuthenticated}
-      setShowLogin={setShowLogin}
-      setShowRegister={setShowRegister}
-    />
-
-    <main className="main-content">
-      <div className="hero-section">
-        <h1>Bienvenue à l'ISSIMM</h1>
-        <p>Gestion des clubs universitaires</p>
-        
-        <div className="auth-triggers">
-          
+      <main className="main-content">
+        <div className="hero-section">
+          <h1>Bienvenue à l'ISIMM</h1>
+          <p>Gestion des clubs universitaires</p>
         </div>
-      </div>
+      </main>
+      {/* New ISIMM Information Section */}
+      <div className="isimm-info">
+          <div className="about-section">
+            <h2>À propos de l'ISIMM</h2>
+            <p>
+              L'Institut Supérieur d'Informatique et de Mathématiques de Monastir (ISIMM) 
+              est un établissement universitaire tunisien rattaché à l'Université de Monastir.
+            </p>
+            <div className="highlights">
+              <div className="highlight-card">
+                <h3>Formations</h3>
+                <ul>
+                  <li>Licences Fondamentales</li>
+                  <li>Licences Appliquées</li>
+                  <li>Masters</li>
+                  <li>Doctorats</li>
+                </ul>
+              </div>
+              <div className="highlight-card">
+                <h3>Départements</h3>
+                <ul>
+                  <li>Informatique</li>
+                  <li>Mathématiques</li>
+                  <li>Technologies de l'Information</li>
+                </ul>
+              </div>
+              <div className="highlight-card">
+                <h3>Vie Étudiante</h3>
+                <ul>
+                  <li>Clubs universitaires</li>
+                  <li>Activités culturelles</li>
+                  <li>Événements scientifiques</li>
+                </ul>
+              </div>
+            </div>
+            <a href="http://www.isimm.rnu.tn/public/" target="_blank" rel="noopener noreferrer" className="official-link">
+              Visiter le site officiel de l'ISIMM
+            </a>
+          </div>
 
-
-    </main>
+          <div className="news-section">
+            <h2>Actualités des Clubs</h2>
+            <div className="news-card">
+              <h3>Événements à venir</h3>
+              <p>Découvrez les prochaines activités organisées par les clubs de l'ISIMM.</p>
+            </div>
+            <div className="news-card">
+              <h3>Inscriptions ouvertes</h3>
+              <p>Rejoignez les clubs universitaires pour l'année 2024-2025.</p>
+            </div>
+          </div>
+        </div>
     
+
+
       {showLogin && (
         <div className="modal-overlay">
           <div className="modal">
@@ -134,8 +192,8 @@ const Home = () => {
               </button>
               <p className="modal-footer-text">
                 Pas de compte?{' '}
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="text-link"
                   onClick={() => {
                     setShowLogin(false);
@@ -150,7 +208,6 @@ const Home = () => {
         </div>
       )}
 
-    
       {showRegister && (
         <div className="modal-overlay">
           <div className="modal">
@@ -197,8 +254,8 @@ const Home = () => {
               </button>
               <p className="modal-footer-text">
                 Déjà inscrit?{' '}
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="text-link"
                   onClick={() => {
                     setShowRegister(false);
@@ -217,4 +274,5 @@ const Home = () => {
     </div>
   );
 };
+
 export default Home;
