@@ -23,7 +23,7 @@ const ChatPopup = () => {
         {
           method: 'POST',
           headers: {
-            Authorization: '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',
+            Authorization: {/*ur API key */},
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
