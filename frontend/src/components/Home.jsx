@@ -3,7 +3,35 @@ import axios from 'axios';
 import './styles.css';
 import Footer from './Footer';
 import Header from './Header';
-
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Composition de Programmation",
+    date: "15 Mars 2024",
+    location: "Amphi A1",
+    description: "Participez à notre compétition annuelle de codage",
+    club: "Club Informatique",
+    image: "/event1.jpg" // Path to your image in public folder
+  },
+  {
+    id: 2,
+    title: "Forum Mathématique",
+    date: "22 Avril 2024",
+    location: "Espace Culturel",
+    description: "Conférences et ateliers pratiques",
+    club: "Club Mathématiques",
+    image: "/event2.jfif"
+  },
+  {
+    id: 3,
+    title: "Journée Portes Ouvertes",
+    date: "5 Mai 2024",
+    location: "Campus Principal",
+    description: "Découverte des activités des clubs",
+    club: "Bureau des Étudiants",
+    image: "/event3.jfif"
+  },
+];
 const Home = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -97,63 +125,82 @@ const Home = () => {
 
       <main className="main-content">
         <div className="hero-section">
-          <h1>Bienvenue à l'ISIMM</h1>
-          <p>Gestion des clubs universitaires</p>
+         
         </div>
       </main>
-      {/* New ISIMM Information Section */}
+
       <div className="isimm-info">
-          <div className="about-section">
-            <h2>À propos de l'ISIMM</h2>
-            <p>
-              L'Institut Supérieur d'Informatique et de Mathématiques de Monastir (ISIMM) 
-              est un établissement universitaire tunisien rattaché à l'Université de Monastir.
-            </p>
-            <div className="highlights">
-              <div className="highlight-card">
-                <h3>Formations</h3>
-                <ul>
-                  <li>Licences Fondamentales</li>
-                  <li>Licences Appliquées</li>
-                  <li>Masters</li>
-                  <li>Doctorats</li>
-                </ul>
-              </div>
-              <div className="highlight-card">
-                <h3>Départements</h3>
-                <ul>
-                  <li>Informatique</li>
-                  <li>Mathématiques</li>
-                  <li>Technologies de l'Information</li>
-                </ul>
-              </div>
-              <div className="highlight-card">
-                <h3>Vie Étudiante</h3>
-                <ul>
-                  <li>Clubs universitaires</li>
-                  <li>Activités culturelles</li>
-                  <li>Événements scientifiques</li>
-                </ul>
-              </div>
+        <div className="about-section">
+          <h2>À propos de l'ISIMM</h2>
+          <p>
+            L'Institut Supérieur d'Informatique et de Mathématiques de Monastir (ISIMM) 
+            est un établissement universitaire tunisien rattaché à l'Université de Monastir.
+          </p>
+          <div className="highlights">
+            <div className="highlight-card">
+              <h3>Formations</h3>
+              <ul>
+                <li>Licences Fondamentales</li>
+                <li>Licences Appliquées</li>
+                <li>Masters</li>
+                <li>Doctorats</li>
+              </ul>
             </div>
-            <a href="http://www.isimm.rnu.tn/public/" target="_blank" rel="noopener noreferrer" className="official-link">
-              Visiter le site officiel de l'ISIMM
-            </a>
+            <div className="highlight-card">
+              <h3>Départements</h3>
+              <ul>
+                <li>Informatique</li>
+                <li>Mathématiques</li>
+                <li>Technologies de l'Information</li>
+              </ul>
+            </div>
+            <div className="highlight-card">
+              <h3>Vie Étudiante</h3>
+              <ul>
+                <li>Clubs universitaires</li>
+                <li>Activités culturelles</li>
+                <li>Événements scientifiques</li>
+              </ul>
+            </div>
+          </div>
+          <a href="http://www.isimm.rnu.tn/public/" target="_blank" rel="noopener noreferrer" className="official-link">
+            Visiter le site officiel de l'ISIMM
+          </a>
+        </div>
+
+        <div className="news-section">
+          <h2>Actualités des Clubs</h2>
+          
+          <div className="events-container">
+            {upcomingEvents.map(event => (
+              <div key={event.id} className="event-card">
+                <div className="event-image-container">
+                  <img 
+                    src={event.image} 
+                    alt={event.title}
+                    className="event-image small-image"
+                  />
+                </div>
+                <div className="event-content">
+                  <h3>{event.title}</h3>
+                  <p className="event-date">{event.date}</p>
+                  <p className="event-location">{event.location}</p>
+                  <p className="event-description">{event.description}</p>
+                  <div className="event-club">
+                    <span>{event.club}</span>
+                    <button className="details-btn">Voir détails</button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="news-section">
-            <h2>Actualités des Clubs</h2>
-            <div className="news-card">
-              <h3>Événements à venir</h3>
-              <p>Découvrez les prochaines activités organisées par les clubs de l'ISIMM.</p>
-            </div>
-            <div className="news-card">
-              <h3>Inscriptions ouvertes</h3>
-              <p>Rejoignez les clubs universitaires pour l'année 2024-2025.</p>
-            </div>
+          <div className="news-card">
+            <h3>Inscriptions ouvertes</h3>
+            <p>Rejoignez les clubs universitaires pour l'année 2024-2025.</p>
           </div>
         </div>
-    
+      </div>
 
 
       {showLogin && (
